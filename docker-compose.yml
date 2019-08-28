@@ -1,0 +1,14 @@
+version: "2"
+services:
+ lldp:
+    build: images
+    container_name: lldp_snmp
+    privileged: true
+    network_mode: bridge
+    ports:
+      - 161:161/udp
+    environment:
+        TZ: Europe/Moscow
+
+#check snmpwalk -m +LLDP-MIB -v 2c -c public 127.0.0.1
+#snmpwalk -m +LLDP-MIB -v 2c -c public 127.0.0.1 1.0.8802.1.1.2
